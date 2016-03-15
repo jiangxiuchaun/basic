@@ -1,0 +1,97 @@
+<!Doctype html>
+<html lang="zh-CN">
+<head>
+    <title>秒度科技H5</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="秒度科技H5">
+    <meta name="keywords" content="秒度科技H5">
+    <meta name="viewport" content="minimal-ui">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link rel="stylesheet" href="./css/swiper.min.css"/>
+    <link rel="stylesheet" href="./css/public.css"/>
+    <script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+<!--资源列表 S-->
+<div class="asset" id="asset">
+    <script assetUrl="js/jquery.easing.js"></script>
+    <script assetUrl="js/jquery.transit.js"></script>
+    <script assetUrl="js/touch.min.js"></script>
+    <script assetUrl="js/swiper.min.js"></script>
+    <script assetUrl="js/swiper.animate.min.js"></script>
+    <link assetUrl="css/animate.css" />
+    <img assetUrl="imgs/music.png" />
+    <audio assetUrl="imgs/music.mp3" />
+</div>
+<!--资源列表 E-->
+<div id="container" class="swiper-container full">
+    <div id="wraper" class='swiper-wrapper'>
+      <section class='swiper-slide slide1' id="slide1" style="z-index:9">
+      </section>
+      <section class='swiper-slide slide2' id="slide2">
+
+      </section>
+    </div>
+    <!-- <img class="arrow" imgSrc="./imgs/arrow.png" /> -->
+</div>
+
+
+
+<div id="inputTips" style="z-index: 9999" class="inputTips">
+        <p></p>
+</div>
+
+<div id="preload" class="preload">
+  <div class="mask" id="mask">
+            <div class="loading">        
+            </div>
+            <span class="pertage" id="pertage"></span>
+  </div>
+</div>
+<!-- <img class="music play"  id="musicBtn" style="z-index: 9999;" imgSrc="imgs/music.png" />
+<audio  id='music' preload="auto"  loop="loop"></audio> -->
+</body>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+function initShareFunc(){
+    wx.ready(function() {
+        //监听“分享到朋友圈”按钮点击、自定义分享内容及分享结果接口
+        wx.onMenuShareTimeline({
+            title: "",
+            desc: '',
+            link: 'http://wx.maildu.com/H5/shengxiang/index.html',
+            imgUrl: 'http://wx.maildu.com/H5/shengxiang/imgs/share.jpg',
+            success: function (res) {
+                
+            }
+        });
+        //监听“分享给朋友”按钮点击、自定义分享内容及分享结果接口
+        wx.onMenuShareAppMessage({
+            title: '',
+            desc: '',
+            link: 'http://wx.maildu.com/H5/shengxiang/index.html',
+            imgUrl: 'http://wx.maildu.com/H5/shengxiang/imgs/share.jpg',
+            success: function (res) {
+              
+            }
+        });
+    });
+}
+
+$.ajax({
+        url:'http://wx.maildu.com/h5/wxapi/index.php?m=getWxConfig',
+        type:'get',
+        dataType:'json',
+        success:function(config) {
+            config.debug = false; // 调试
+            config.jsApiList = ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ'];
+            wx.config(config);
+            initShareFunc();
+        }
+});
+</script>
+<script src="./js/loader.js"></script>
+<script src="./js/index.js"></script>
+</html>

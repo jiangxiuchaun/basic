@@ -1,0 +1,131 @@
+@charset "utf-8";
+/*=====================================
+  reset
+  =====================================*/
+html, body, h1, h2, h3, h4, h5, h6, table, thead, tfoot, tbody, form, fieldset, legend, div, p, span, dl, dt, dd, ul, ol, li, blockquote, pre, q, cite, code, input, select, textarea {margin:0; padding:0;}
+h1, h2, h3, h4, h5, h6, strong, em, cite, address, sup, sub, th { -webkit-tap-highlight-color:transparent;font-weight:normal; font-style:normal; vertical-align:auto; font-size:1em;}
+i {font-style:normal;}
+input,textarea,input:focus,textarea:focus{-webkit-tap-highlight-color:rgba(0,0,0,0);outline: transparent;}
+ul, ol {list-style-type:none;}
+a:link, a:visited {text-decoration:none; outline:0 none;}
+a:hover, a:active {text-decoration:underline; outline:0 none;}
+fieldset, a img {border:none;}
+img {vertical-align:top;display: block;}
+input, textarea, button {font-size:100%; font-family:inherit;}
+button {cursor: pointer;}
+textarea {resize:none; overflow:auto;}
+table {border-collapse:collapse; border-spacing:0;}
+select optgroup {font-style:normal;}
+legend {display:none;}
+input[type="radio"],
+input[type="checkbox"],
+textarea {vertical-align:middle;}
+.iswin input[type="radio"],
+.iswin input[type="checkbox"],
+.iswin textarea {vertical-align:-3px;}
+input[type="radio"],
+input[type="checkbox"] {margin-right:3px;}
+input[type="text"],
+input[type="password"],
+textarea {border:none;}
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus {box-shadow:inset 0 0 5px #e0e0e0; border-color:#4180ea !important;}
+a,img{  
+  tap-highlight-color: rgba(0,0,0,0);  
+  focus-ring-color: rgba(0, 0, 0, 0);  
+  -webkit-tap-highlight-color: rgba(0,0,0,0);  
+  -webkit-focus-ring-color: rgba(0, 0, 0, 0);  
+  -moz-tap-highlight-color: rgba(0,0,0,0);  
+  -moz-focus-ring-color: rgba(0, 0, 0, 0);  
+} 
+/*=====================================
+  全局
+  =====================================*/
+html {height:100%; overflow-y:scroll;}
+body {position:relative; min-width:300px;max-width: 640px;margin: 0 auto; min-height:100%; font-size:12px;}
+.root_gap{position:relative; /* width:96%; */ margin:0 30px;}
+.clearfix {zoom:1;}
+.clearfix:after {content:"";display:block;height:0;font-size:0;clear:both;overflow:hidden;visibility:hidden;}
+.abs{position: absolute;}
+.resize{position: absolute;}
+.loadingMask{position:fixed;width:100%;height:100%;top:0;left:0;z-index: 999999;}
+.loadingMask:before{content: '';display:block;position: absolute;width: 100%;height: 100%;left: 0;top: 0px;background: #fff;opacity: 0.5;}
+.loadingMask img{display:block;position:absolute;width:50px;height: 50px;left: 50%;top:50%;margin-left: -25px;margin-top: -25px;}
+
+/*=====================================
+  marry
+  =====================================*/
+.swiper-container{position:absolute;left:0%;top:0%;width:100%;height:100%;overflow:hidden;display: block;}
+.swiper-container::before{}
+.swiper-container::after{}
+.swiper-container .swiper-wrapper{position:absolute;width: 100%;height: 100%; left:0;top:0;z-index: 2}
+.swiper-container .swiper-slide{position:relative;width:100%;height:100%;overflow: hidden;}
+.swiper-container .arrow{z-index:9999;position: absolute;bottom: 8%;width: 40px;left: 50%;margin-left: -20px;-webkit-animation: move 1.5s linear infinite;}
+.ani{position:absolute;text-align: center;}
+/*=================preload==============================*/
+.inputArea{color:#fff;font-weight:600;font-size:15px;border:none;background:transparent;box-sizing:border-box;}
+.asset{display: none;}
+.music{display:block;position: absolute;z-index: 9999;right: 0px;width: 30px;top: 10px;right: 10px;}
+.music.play{-webkit-animation: play 1.8s linear infinite;}
+.inputTips{position: absolute;display:none;bottom: -50px;line-height: 20px;font-size:14px;width: 100%;text-align: center;}
+.inputTips p{border:2px solid #D0163F;display:inline-block;padding:5px 10px;background:#fff ;color:#D0163F; border-radius:6px; }
+.scaleAni{-webkit-animation: scale 1.5s linear infinite;}
+@-webkit-keyframes scale{
+0%   {-webkit-transform:translate(0px,0px);}
+25% {-webkit-transform:translate(10px,0px);}
+50%   {-webkit-transform:translate(0px,0px);}
+75%   {-webkit-transform:translate(-10px,0px);}
+100%   {-webkit-transform:translate(0px,0px);}
+}
+@-webkit-keyframes move{
+    0%,30% {
+        opacity: 0;
+        -webkit-transform: translate(0,10px)
+    }
+
+    50%,80%{
+        opacity: 1;
+        -webkit-transform: translate(0,-10px)
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: translate(0,-15px)
+    }
+}
+@-webkit-keyframes play{
+0%   {-webkit-transform:rotate(0deg);}
+100% {-webkit-transform:rotate(360deg);}
+}
+/*==================Main==============================*/
+.full{width:100%;height:100%;top:0;left: 0;}
+.preload{position:absolute;left:0%;top:0%;width:100%;height:100%;overflow:hidden;z-index: 999;background: #000}
+.preload .mask{position:absolute;width:100%;height:100%;left:0px;top:0px;}
+.preload .mask .loading{position:relative;width:100px;height:100px;top:200px;margin:0 auto;background:url(../imgs/loading2.gif);background-size: 100% 100%; }
+.preload .mask .pertage{position:relative;display:block;top: 135px;margin:0 auto;text-align: center;color:#fff;font-size: 20px;font-weight: 500;}
+.swiper-container img{display: block;}
+.swiper-container .swiper-slide{}
+.swiper-container .mask:before{content: '';display:block;position: absolute;width: 100%;height: 100%;left: 0;top: 0px;background: #000;opacity: 0.8;}
+/*=================first==============================*/
+.swiper-container .slide1{} 
+.swiper-container .slide1 .slide1_1{}
+/*=================second==============================*/
+.swiper-container .slide2{} 
+.swiper-container .slide2 .slide2_1{}
+.shareContent{width:82%;left:9%;top:47%;background:#dfdfdf;border-radius:10px;padding:2% 0;text-align: center;}
+.shareContent h2{font-weight: bold;font-size:22px;line-height: 40px;color: #000; }
+.shareContent p{font-size:22px;line-height: 40px}
+.shareContent p em{}
+/*=================third==============================*/
+@-webkit-keyframes blingAni{
+  0% {
+    opacity: 1
+  }
+  50% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
